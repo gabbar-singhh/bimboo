@@ -1,7 +1,9 @@
 "use client";
 
 import Cal, { getCalApi } from "@calcom/embed-react";
+import Link from "next/link";
 import { useEffect } from "react";
+import styles from "./styles/page.module.css";
 
 export default function Home() {
   useEffect(() => {
@@ -18,65 +20,27 @@ export default function Home() {
     })();
   }, []);
   return (
-    <main className="flex flex-col justify-center items-center gap-36 mt-20 mb-16">
-      <section className="w-[700px] text-neutral-300 justify-center">
-        <p className="font-normal text-lg mb-2">Hi there</p>
-        <p className="font-normal text-lg mb-8">
-          {" "}
-          I am{" "}
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/in/himanshufs/"
-            className="underline-offset-2 underline text-indigo-600"
-          >
-            Himanshu
-          </a>
-          , founder @ a web dev agency,&nbsp;
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/company/bimboo-co/"
-            className="underline-offset-2 underline text-indigo-600"
-          >
-            Bimboo.
-          </a>
+    <main className="h-screen flex items-center justify-center flex-col">
+      <p className="text-center text-lg font-normal mb-8">
+        Website under maintenance. <br /> In the meantime, follow{" "}
+        <Link
+          className="text-indigo-600"
+          href={"https://www.linkedin.com/in/himanshufs/"}
+        >
+          <span className="underline underline-offset-4">Himanshu</span> :)
+        </Link>{" "}
+      </p>
+
+      <div className="mt-4">
+        <p className="text-center text-lg font-normal">
+          Or Book a Free Call 👇
         </p>
-        <p className="font-normal text-lg mb-2">here's what we do 👇</p>
-
-        <ul>
-          <li className="font-normal text-lg mb-2">
-            - we research the market and analyze competitors to find what works.
-          </li>
-          <li className="font-normal text-lg mb-2">
-            - we write content for your website, resonating with your target
-            markets, age groups and more.
-          </li>
-          <li className="font-normal text-lg mb-8">
-            - we then create a website for your company that doesn't just
-            present information but tells a story & builds a connection.
-          </li>
-        </ul>
-
-        <p className="font-normal text-lg mb-8">
-          This call is for us to brainstorm and figure out where we can help
-          you!
-        </p>
-
-        <p className="font-normal text-lg mb-8">
-          Best <br /> Himanshu :)
-        </p>
-      </section>
-
-      <section className="w-screen">
-        <h3 className="text-3xl font-bold text-neutral-300 text-center mb-8">
-          schedule a call now.
-        </h3>
-        <Cal
-          namespace="30min"
-          calLink="work-with-bimboo/30min"
-          style={{ width: "100%", height: "100%", overflow: "scroll" }}
-          config={{ layout: "month_view" }}
-        />
-      </section>
+        <Link href={"/call"} className="">
+          <div className="text-gray-800 bg-slate-200 text-lg font-medium px-8 py-2 text-center rounded mt-4 hover:bg-slate-300 transition-all">
+            from here
+          </div>
+        </Link>
+      </div>
     </main>
   );
 }
